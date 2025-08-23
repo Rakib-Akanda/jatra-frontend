@@ -1,7 +1,10 @@
+import { Outlet } from "react-router";
+import CommonLayout from "./components/layout/CommonLayout";
+
 function App() {
   return (
     <>
-      <h1 className="text-7xl">Vite + React</h1>
+      <CommonLayout>{<Outlet />}</CommonLayout>
     </>
   );
 }
