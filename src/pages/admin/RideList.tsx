@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/ui/button";
 
-import { useDriverInfoQuery } from "@/redux/features/driver/driver.api";
 import { useState } from "react";
 import { format } from "date-fns";
 // import { format } from "date-fns";
@@ -14,8 +12,7 @@ import {
 import PaginationComponent from "@/components/pagination";
 const RideList = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [limit, setLimit] = useState(10);
-  const { data: DriverData } = useDriverInfoQuery({ page: currentPage, limit });
+  const [limit] = useState(10);
 
   const { data } = useGetAllRiderRidesQuery({ page: currentPage, limit });
   const [updateRideStatus] = useUpdateRideStatusMutation(undefined);
@@ -26,7 +23,7 @@ const RideList = () => {
       id,
       status: "CANCELLED",
     };
-    const res = await updateRideStatus(cancelData).unwrap();
+    await updateRideStatus(cancelData).unwrap();
     // console.log(res);
   };
   const handleAccepted = async (id: string) => {

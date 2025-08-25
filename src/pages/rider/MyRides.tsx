@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import PaginationComponent from "@/components/pagination";
 import { Button } from "@/components/ui/button";
@@ -11,7 +10,7 @@ import { format } from "date-fns";
 import { useState } from "react";
 const MyRides = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [limit, setLimit] = useState(10);
+  const [limit] = useState(10);
   const { data } = useGetRiderRidesQuery({ page: currentPage, limit });
   const [updateRideStatus] = useUpdateRideStatusMutation(undefined);
   // console.log(data);

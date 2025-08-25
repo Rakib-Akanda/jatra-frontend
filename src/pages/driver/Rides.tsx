@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import PaginationComponent from "@/components/pagination";
 import { Button } from "@/components/ui/button";
@@ -12,7 +11,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 const Rides = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [limit, setLimit] = useState(10);
+  const [limit] = useState(10);
   const { data } = useGetAllRiderRidesQuery({ page: currentPage, limit });
   const [updateRideStatus] = useUpdateRideStatusMutation(undefined);
   // console.log(data);
