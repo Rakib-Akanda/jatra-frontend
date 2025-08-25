@@ -1,15 +1,23 @@
 import Logo from "@/assets/icons/Logo";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="bg-white">
+    <footer>
       <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <div className="text-teal-600">
-              <Logo />
+              <Link to={"/"} className="text-primary hover:text-primary/90">
+                <div className="flex items-center gap-3">
+                  <Logo />
+                  <h2 className="font-black text-xl">
+                    Jatr<span className="text-black">A</span>
+                  </h2>
+                </div>
+              </Link>
             </div>
-            
+
             <p className="mt-4 max-w-xs text-gray-500">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non
               cupiditate quae nam molestias.

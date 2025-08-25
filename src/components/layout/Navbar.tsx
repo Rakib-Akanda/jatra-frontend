@@ -20,28 +20,32 @@ import {
 import { useAppDispatch } from "@/redux/hooks";
 import Logo from "@/assets/icons/Logo";
 import { role } from "@/constants/role";
+import { ModeToggle } from "./ModeToggler";
 
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
   { href: "/", label: "Home", role: "PUBLIC" },
   { href: "/about", label: "About", role: "PUBLIC" },
-  { href: "/ride", label: "Ride", role: "PUBLIC" },
   { href: "/admin", label: "Dashboard", role: role.admin },
   { href: "/admin", label: "Dashboard", role: role.superAdmin },
   { href: "/rider", label: "Dashboard", role: role.rider },
+  { href: "/driver", label: "Dashboard", role: role.driver },
 ];
 
 export const Navbar = () => {
-  const { data } = useUserInfoQuery(undefined);
+  const { data, isLoading } = useUserInfoQuery(undefined);
   const [logout] = useLogoutMutation();
   const dispatch = useAppDispatch();
-  // console.log(data?.data?.email);
+  // console.log(data?.data?.data);
 
   const handleLogout = async () => {
     await logout(undefined);
     dispatch(authApi.util.resetApiState());
   };
   //   console.log(data.data.email);
+  if (isLoading) {
+    return <div className="min-h-screen bg-background">Loading...</div>;
+  }
   return (
     <header className="border-b">
       <div className="flex h-16 items-center mx-auto px-4 container justify-between gap-4">
@@ -94,7 +98,7 @@ export const Navbar = () => {
                           </NavigationMenuLink>
                         </NavigationMenuItem>
                       )}
-                      {link.role === data?.data?.role && (
+                      {link.role === data?.data?.data?.role && (
                         <NavigationMenuItem key={index} className="w-full">
                           <NavigationMenuLink asChild className="py-1.5">
                             <Link to={link.href}>{link.label}</Link>
@@ -110,7 +114,12 @@ export const Navbar = () => {
           {/* Main nav */}
           <div className="flex items-center gap-6">
             <Link to={"/"} className="text-primary hover:text-primary/90">
-              <Logo />
+              <div className="flex items-center gap-3">
+                <Logo />
+                <h2 className="font-black text-xl">
+                  Jatr<span className="text-black">A</span>
+                </h2>
+              </div>
             </Link>
             {/* Navigation menu */}
             <NavigationMenu className="max-md:hidden">
@@ -127,7 +136,7 @@ export const Navbar = () => {
                         </NavigationMenuLink>
                       </NavigationMenuItem>
                     )}
-                    {link.role === data?.data?.role && (
+                    {link.role === data?.data?.data?.role && (
                       <NavigationMenuItem>
                         <NavigationMenuLink
                           asChild
@@ -145,8 +154,8 @@ export const Navbar = () => {
         </div>
         {/* Right side */}
         <div className="flex items-center gap-2">
-          {/* <ModeToggle /> */}
-          {data?.data?.email && (
+          <ModeToggle />
+          {data?.data?.data?.email && (
             <Button
               onClick={handleLogout}
               variant="outline"
@@ -155,7 +164,7 @@ export const Navbar = () => {
               Logout
             </Button>
           )}
-          {!data?.data?.email && (
+          {!data?.data?.data?.email && (
             <Button asChild className="text-sm">
               <Link to="/login">Login</Link>
             </Button>
