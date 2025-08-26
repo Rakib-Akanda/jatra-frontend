@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/about",
-        Component: withAuth(About),
+        Component: About,
       },
     ],
   },
