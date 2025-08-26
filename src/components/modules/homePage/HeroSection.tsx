@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
 import Logo from "@/assets/icons/Logo";
-import { Link } from "react-router";
 
 const HeroSection = () => {
   return (
@@ -27,16 +25,6 @@ const HeroSection = () => {
                 Your ride, your schedule. Enjoy hassle-free travel with our
                 trusted drivers anytime, anywhere
               </p>
-            </div>
-            <div className="mt-6 flex justify-center gap-3">
-              <Link to={"/"}>
-                <Button
-                  variant={"secondary"}
-                  className="shadow-sm transition-shadow hover:shadow"
-                >
-                  Get Started
-                </Button>
-              </Link>
             </div>
           </div>
         </div>

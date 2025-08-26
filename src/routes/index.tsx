@@ -15,6 +15,7 @@ import { riderSidebarItems } from "./riderSidebarItems";
 import { driverSidebarItems } from "./driverSidebarItems";
 import { adminSidebarItems } from "./adminSidebarItems";
 import { ContactUs } from "@/pages/ContactUs";
+import { FAQPage } from "@/pages/FAQ";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
       {
         path: "/contact-us",
         Component: ContactUs,
+      },
+      {
+        path: "/faq",
+        Component: FAQPage,
       },
     ],
   },
