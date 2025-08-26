@@ -3,9 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 export const About = () => {
   return (
     <div className="max-w-5xl mx-auto px-6 py-12">
-      <h1 className="text-4xl font-bold text-center mb-8">
-        About Jatra
-      </h1>
+      <h1 className="text-4xl font-bold text-center mb-8">About Jatra</h1>
 
       <p className="text-lg text-gray-700 text-center mb-12">
         Ride Management is a modern web application designed to make ride

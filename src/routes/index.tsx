@@ -14,6 +14,7 @@ import generateRoutes from "@/utils/generateRoutes";
 import { riderSidebarItems } from "./riderSidebarItems";
 import { driverSidebarItems } from "./driverSidebarItems";
 import { adminSidebarItems } from "./adminSidebarItems";
+import { ContactUs } from "@/pages/ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         Component: About,
+      },
+      {
+        path: "/contact-us",
+        Component: ContactUs,
       },
     ],
   },
