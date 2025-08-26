@@ -6,7 +6,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 export const ContactUs = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 flex items-center justify-center">
+    <div className="min-h-screen py-12 px-4 flex items-center justify-center">
       <Card className="w-full max-w-4xl shadow-xl rounded-2xl">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-center text-blue-600">

@@ -119,7 +119,7 @@ export const Navbar = () => {
               <div className="flex items-center gap-3">
                 <Logo />
                 <h2 className="font-black text-xl">
-                  Jatr<span className="text-black">A</span>
+                  Jatr<span className="text-black dark:text-white">A</span>
                 </h2>
               </div>
             </Link>
