@@ -40,6 +40,7 @@ export const Navbar = () => {
 
   const handleLogout = async () => {
     await logout(undefined);
+    localStorage.clear();
     dispatch(authApi.util.resetApiState());
   };
   //   console.log(data.data.email);

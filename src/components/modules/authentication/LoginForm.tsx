@@ -44,9 +44,12 @@ export function LoginForm({
   const onSubmit: SubmitHandler<z.infer<typeof loginSchema>> = async (data) => {
     try {
       const res = await login(data).unwrap();
-
+      // console.log(res?.data?.accessToken);
       if (res.success) {
         toast.success("Logged in successfully");
+        localStorage.setItem("accessToken", res.data.accessToken);
+        localStorage.setItem("refreshToken", res.data.refreshToken);
+        // console.log(res.data.accessToken);
         navigate("/");
       }
     } catch (err: any) {

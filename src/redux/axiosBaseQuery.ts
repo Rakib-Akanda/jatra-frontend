@@ -14,14 +14,17 @@ const axiosBaseQuery =
     unknown,
     unknown
   > =>
-  async ({ url, method, data, params, headers }) => {
+  async ({ url, method, data, params }) => {
     try {
+      const accessToken = localStorage.getItem("accessToken");
       const result = await axiosInstance({
         url,
         method,
         data,
         params,
-        headers,
+        headers: accessToken
+          ? { Authorization: `Bearer ${accessToken}` }
+          : undefined,
       });
       return {
         data: result.data,
