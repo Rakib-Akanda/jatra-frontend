@@ -1,69 +1,93 @@
-# React + TypeScript + Vite
+# Jatra Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##  Live Deployment
 
-Currently, two official plugins are available:
+[Visit Jatra Frontend](https://jatra-frontend.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+##  Project Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Jatra Frontend** is the client-side application of the Jatra platform. It is designed to provide a smooth, responsive, and user-friendly interface for travelers and ride-sharing users. The frontend communicates with the backend server through secured API calls and handles authentication, state management, and UI rendering.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+##  Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+*  **Authentication System** – Secure login and signup with JWT.
+*  **Responsive Design** – Optimized for mobile, tablet, and desktop.
+*  **Ride Management** – Browse and manage available rides.
+*  **User Profiles** – Update and view user details.
+*  **API Integration** – Seamless communication with backend services.
+*  **Protected Routes** – Restricted access based on authentication.
+*  **Optimized Performance** – Fast loading and smooth navigation.
+
+---
+
+##  Technology Stack
+
+* **Frontend Framework**: React (with TypeScript)
+* **State Management**: Redux Toolkit / Context API (based on usage)
+* **Styling**: Tailwind CSS / Shadcn UI
+* **Routing**: React Router DOM
+* **API Calls**: Axios
+* **Deployment**: Vercel
+
+---
+
+##  Setup Instructions
+
+### 1 Clone the Repository
+
+```bash
+ git clone https://github.com/Rakib-Akanda/jatra-frontend.git
+ cd jatra-frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2 Install Dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+ npm install
 ```
+
+### 3 Setup Environment Variables
+
+Create a `.env` file in the root directory and add:
+
+```env
+VITE_API_BASE_URL=your_backend_api_url
+```
+
+### 4 Run in Development
+
+```bash
+ npm run dev
+```
+
+### 5 Build for Production
+
+```bash
+ npm run build
+```
+
+### 6 Preview Production Build
+
+```bash
+ npm run preview
+```
+
+---
+
+##  Additional Notes
+
+* Make sure the backend server (`Jatra Backend`) is running and CORS is configured properly.
+* Use `withCredentials: true` in Axios if authentication relies on cookies.
+* For token-based authentication, store the JWT in `localStorage` or `httpOnly` cookies depending on your security strategy.
+* Contributions and pull requests are welcome!
+
+---
+
+##  Author
+
+**Rakib Akanda**
+[GitHub Profile](https://github.com/Rakib-Akanda)
